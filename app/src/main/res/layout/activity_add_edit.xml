@@ -11,6 +11,56 @@
         android:orientation="vertical"
         android:padding="@dimen/spacing_xl">
 
+        <LinearLayout
+            android:id="@+id/rowIconPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/spacing_s">
+
+            <FrameLayout
+                android:layout_width="64dp"
+                android:layout_height="64dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_circle_entry" />
+
+                <ImageView
+                    android:id="@+id/ivEntryIconDefault"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_key"
+                    app:tint="@color/entry_icon_fg"
+                    android:contentDescription="@string/change_icon" />
+
+                <com.mikepenz.iconics.view.IconicsImageView
+                    android:id="@+id/ivEntryIconBrand"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    app:iiv_color="@color/entry_icon_fg"
+                    android:contentDescription="@string/change_icon" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="@string/change_icon"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="@dimen/text_caption" />
+        </LinearLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilTitle"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"

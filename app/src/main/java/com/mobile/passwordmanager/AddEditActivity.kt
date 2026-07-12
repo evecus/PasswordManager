@@ -21,6 +21,7 @@ class AddEditActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddEditBinding
     private var editingId: String? = null
     private var groupId: String? = null
+    private var iconKey: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +34,14 @@ class AddEditActivity : AppCompatActivity() {
         editingId = intent.getStringExtra(EXTRA_ID)
         groupId = intent.getStringExtra(EXTRA_GROUP_ID)
         if (editingId != null) loadEntry(editingId!!) else binding.btnDelete.visibility = View.GONE
+
+        refreshIconPreview()
+        binding.rowIconPicker.setOnClickListener {
+            IconPickerDialog.show(this, iconKey) { picked ->
+                iconKey = picked
+                refreshIconPreview()
+            }
+        }
 
         // 复制用户名
         binding.tilUsername.setEndIconOnClickListener {
@@ -53,11 +62,24 @@ class AddEditActivity : AppCompatActivity() {
             finish(); return
         }
         groupId = entry.groupId
+        iconKey = entry.iconKey
         binding.etTitle.setText(entry.title)
         binding.etUsername.setText(entry.username)
         binding.etPassword.setText(entry.password)
         binding.etUrl.setText(entry.url)
         binding.etNotes.setText(entry.notes)
+    }
+
+    private fun refreshIconPreview() {
+        val entry = IconCatalog.find(iconKey)
+        if (entry != null) {
+            binding.ivEntryIconBrand.setIcon(entry.icon)
+            binding.ivEntryIconBrand.visibility = View.VISIBLE
+            binding.ivEntryIconDefault.visibility = View.GONE
+        } else {
+            binding.ivEntryIconBrand.visibility = View.GONE
+            binding.ivEntryIconDefault.visibility = View.VISIBLE
+        }
     }
 
     private fun save() {
@@ -76,7 +98,8 @@ class AddEditActivity : AppCompatActivity() {
             url = binding.etUrl.text?.toString().orEmpty(),
             notes = binding.etNotes.text?.toString().orEmpty(),
             groupId = groupId,
-            updatedAt = System.currentTimeMillis()
+            updatedAt = System.currentTimeMillis(),
+            iconKey = iconKey
         )
         CryptoVault.upsert(entry)
         CryptoVault.save(this)

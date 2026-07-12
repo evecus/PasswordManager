@@ -28,11 +28,21 @@
             android:background="@drawable/ic_circle_group" />
 
         <ImageView
+            android:id="@+id/ivGroupIconDefault"
             android:layout_width="@dimen/icon_list"
             android:layout_height="@dimen/icon_list"
             android:layout_gravity="center"
             android:src="@drawable/ic_folder"
             app:tint="@color/group_icon_fg"
+            android:contentDescription="@string/section_groups" />
+
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/ivGroupIconBrand"
+            android:layout_width="@dimen/icon_list"
+            android:layout_height="@dimen/icon_list"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:iiv_color="@color/group_icon_fg"
             android:contentDescription="@string/section_groups" />
     </FrameLayout>
 

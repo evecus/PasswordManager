@@ -91,6 +91,15 @@ class HomeAdapter(
                 with(h.binding) {
                     tvGroupName.text = item.group.name.ifBlank { ctx.getString(R.string.untitled) }
                     tvGroupCount.text = ctx.getString(R.string.group_entry_count, item.count)
+                    val iconEntry = IconCatalog.find(item.group.iconKey)
+                    if (iconEntry != null) {
+                        ivGroupIconBrand.setIcon(iconEntry.icon)
+                        ivGroupIconBrand.visibility = android.view.View.VISIBLE
+                        ivGroupIconDefault.visibility = android.view.View.GONE
+                    } else {
+                        ivGroupIconBrand.visibility = android.view.View.GONE
+                        ivGroupIconDefault.visibility = android.view.View.VISIBLE
+                    }
                     root.setOnClickListener { onGroupClick(item.group) }
                     btnDeleteGroup.setOnClickListener { onGroupDelete(item.group) }
                 }
@@ -104,6 +113,15 @@ class HomeAdapter(
                 with(h.binding) {
                     tvTitle.text = item.entry.title.ifBlank { ctx.getString(R.string.untitled) }
                     tvUsername.text = item.entry.username.ifBlank { ctx.getString(R.string.no_username) }
+                    val iconEntry = IconCatalog.find(item.entry.iconKey)
+                    if (iconEntry != null) {
+                        ivEntryIconBrand.setIcon(iconEntry.icon)
+                        ivEntryIconBrand.visibility = android.view.View.VISIBLE
+                        ivEntryIconDefault.visibility = android.view.View.GONE
+                    } else {
+                        ivEntryIconBrand.visibility = android.view.View.GONE
+                        ivEntryIconDefault.visibility = android.view.View.VISIBLE
+                    }
                     root.setOnClickListener { onEntryClick(item.entry) }
                     btnCopy.setOnClickListener { onEntryCopy(item.entry) }
                     btnDelete.setOnClickListener { onEntryDelete(item.entry) }

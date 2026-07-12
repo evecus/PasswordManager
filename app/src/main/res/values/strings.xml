@@ -47,6 +47,13 @@
     <string name="dialog_new_group">新建分组</string>
     <string name="dialog_choose_add">选择创建类型</string>
 
+    <!-- 图标选择 -->
+    <string name="dialog_pick_icon">选择图标</string>
+    <string name="hint_icon_search">搜索网站 / 服务</string>
+    <string name="icon_search_empty">没有找到匹配的图标</string>
+    <string name="icon_clear">清除图标</string>
+    <string name="change_icon">选择图标</string>
+
     <!-- 编辑 -->
     <string name="hint_title">标题(如网站名)</string>
     <string name="hint_username">用户名 / 邮箱</string>

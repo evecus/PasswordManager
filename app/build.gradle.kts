@@ -77,4 +77,9 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.9.3")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
     implementation("androidx.biometric:biometric:1.1.0")
+
+    // 离线图标字体库:用于分组/密码条目选择品牌图标(Simple Icons 收录数千个常见网站/服务的品牌图标)
+    implementation("com.mikepenz:iconics-core:5.5.0")
+    implementation("com.mikepenz:iconics-views:5.5.0")
+    implementation("com.mikepenz:simple-icons-typeface:17.0.0.3@aar")
 }

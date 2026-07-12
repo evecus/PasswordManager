@@ -23,11 +23,21 @@
             android:background="@drawable/ic_circle_entry" />
 
         <ImageView
+            android:id="@+id/ivEntryIconDefault"
             android:layout_width="@dimen/icon_list"
             android:layout_height="@dimen/icon_list"
             android:layout_gravity="center"
             android:src="@drawable/ic_key"
             app:tint="@color/entry_icon_fg"
+            android:contentDescription="@string/copy_password" />
+
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/ivEntryIconBrand"
+            android:layout_width="@dimen/icon_list"
+            android:layout_height="@dimen/icon_list"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:iiv_color="@color/entry_icon_fg"
             android:contentDescription="@string/copy_password" />
     </FrameLayout>
 

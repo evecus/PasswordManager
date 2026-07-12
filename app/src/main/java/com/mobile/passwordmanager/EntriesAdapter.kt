@@ -27,6 +27,15 @@ class EntriesAdapter(
         with(holder.binding) {
             tvTitle.text = item.title.ifBlank { root.context.getString(R.string.untitled) }
             tvUsername.text = item.username.ifBlank { root.context.getString(R.string.no_username) }
+            val iconEntry = IconCatalog.find(item.iconKey)
+            if (iconEntry != null) {
+                ivEntryIconBrand.setIcon(iconEntry.icon)
+                ivEntryIconBrand.visibility = android.view.View.VISIBLE
+                ivEntryIconDefault.visibility = android.view.View.GONE
+            } else {
+                ivEntryIconBrand.visibility = android.view.View.GONE
+                ivEntryIconDefault.visibility = android.view.View.VISIBLE
+            }
             root.setOnClickListener { onClick(item) }
             btnCopy.setOnClickListener { onCopyPassword(item) }
             btnDelete.setOnClickListener { onDelete(item) }

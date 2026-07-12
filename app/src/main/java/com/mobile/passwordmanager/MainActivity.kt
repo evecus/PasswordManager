@@ -122,13 +122,39 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun showNewGroupDialog() {
+    private fun showNewGroupDialog(existingGroup: Group? = null) {
         val view = layoutInflater.inflate(R.layout.dialog_new_group, null)
         val til = view.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.tilGroupName)
         val input = view.findViewById<EditText>(R.id.etGroupName)
+        val rowIconPicker = view.findViewById<View>(R.id.rowGroupIconPicker)
+        val ivDefault = view.findViewById<android.widget.ImageView>(R.id.ivGroupIconDefault)
+        val ivBrand = view.findViewById<com.mikepenz.iconics.view.IconicsImageView>(R.id.ivGroupIconBrand)
+
+        var selectedIconKey: String? = existingGroup?.iconKey
+        input.setText(existingGroup?.name.orEmpty())
+
+        fun refreshIconPreview() {
+            val entry = IconCatalog.find(selectedIconKey)
+            if (entry != null) {
+                ivBrand.setIcon(entry.icon)
+                ivBrand.visibility = View.VISIBLE
+                ivDefault.visibility = View.GONE
+            } else {
+                ivBrand.visibility = View.GONE
+                ivDefault.visibility = View.VISIBLE
+            }
+        }
+        refreshIconPreview()
+
+        rowIconPicker.setOnClickListener {
+            IconPickerDialog.show(this, selectedIconKey) { picked ->
+                selectedIconKey = picked
+                refreshIconPreview()
+            }
+        }
 
         val dialog = MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.dialog_new_group)
+            .setTitle(if (existingGroup != null) R.string.title_group else R.string.dialog_new_group)
             .setView(view)
             .setNegativeButton(R.string.cancel, null)
             .setPositiveButton(R.string.save) { _, _ -> }
@@ -143,10 +169,11 @@ class MainActivity : AppCompatActivity() {
             }
             til.error = null
             val group = Group(
-                id = UUID.randomUUID().toString(),
+                id = existingGroup?.id ?: UUID.randomUUID().toString(),
                 name = name,
-                createdAt = System.currentTimeMillis(),
-                updatedAt = System.currentTimeMillis()
+                createdAt = existingGroup?.createdAt ?: System.currentTimeMillis(),
+                updatedAt = System.currentTimeMillis(),
+                iconKey = selectedIconKey
             )
             CryptoVault.upsertGroup(group)
             CryptoVault.save(this)
