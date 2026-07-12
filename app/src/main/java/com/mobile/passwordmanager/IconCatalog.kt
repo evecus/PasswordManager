@@ -1,7 +1,7 @@
 package com.mobile.passwordmanager
 
 import com.mikepenz.iconics.typeface.IIcon
-import com.mikepenz.iconics.typeface.library.simpleicons.SimpleIcons
+import com.mikepenz.iconics.typeface.library.simple_icons.SimpleIcons
 
 /**
  * 品牌图标目录,基于离线图标字体库 Simple Icons(com.mikepenz:simple-icons-typeface)。
@@ -23,15 +23,13 @@ object IconCatalog {
      */
     val all: List<IconEntry> = listOf(
         IconEntry("sim_google", "Google", SimpleIcons.Icon.sim_google),
-        IconEntry("sim_gmail", "Gmail", SimpleIcons.Icon.sim_gmail),
-        IconEntry("sim_apple", "Apple", SimpleIcons.Icon.sim_apple),
         IconEntry("sim_icloud", "iCloud", SimpleIcons.Icon.sim_icloud),
         IconEntry("sim_microsoft", "Microsoft", SimpleIcons.Icon.sim_microsoft),
         IconEntry("sim_microsoftoutlook", "Outlook", SimpleIcons.Icon.sim_microsoftoutlook),
         IconEntry("sim_amazon", "Amazon", SimpleIcons.Icon.sim_amazon),
         IconEntry("sim_facebook", "Facebook", SimpleIcons.Icon.sim_facebook),
         IconEntry("sim_instagram", "Instagram", SimpleIcons.Icon.sim_instagram),
-        IconEntry("sim_x", "X (Twitter)", SimpleIcons.Icon.sim_x),
+        IconEntry("sim_twitter", "X (Twitter)", SimpleIcons.Icon.sim_twitter),
         IconEntry("sim_linkedin", "LinkedIn", SimpleIcons.Icon.sim_linkedin),
         IconEntry("sim_tiktok", "TikTok", SimpleIcons.Icon.sim_tiktok),
         IconEntry("sim_snapchat", "Snapchat", SimpleIcons.Icon.sim_snapchat),
@@ -42,47 +40,34 @@ object IconCatalog {
         IconEntry("sim_whatsapp", "WhatsApp", SimpleIcons.Icon.sim_whatsapp),
         IconEntry("sim_wechat", "微信", SimpleIcons.Icon.sim_wechat),
         IconEntry("sim_alipay", "支付宝", SimpleIcons.Icon.sim_alipay),
-        IconEntry("sim_weibo", "微博", SimpleIcons.Icon.sim_weibo),
         IconEntry("sim_bilibili", "哔哩哔哩", SimpleIcons.Icon.sim_bilibili),
-        IconEntry("sim_zhihu", "知乎", SimpleIcons.Icon.sim_zhihu),
         IconEntry("sim_taobao", "淘宝", SimpleIcons.Icon.sim_taobao),
-        IconEntry("sim_jd", "京东", SimpleIcons.Icon.sim_jd),
         IconEntry("sim_netflix", "Netflix", SimpleIcons.Icon.sim_netflix),
         IconEntry("sim_youtube", "YouTube", SimpleIcons.Icon.sim_youtube),
         IconEntry("sim_spotify", "Spotify", SimpleIcons.Icon.sim_spotify),
-        IconEntry("sim_disneyplus", "Disney+", SimpleIcons.Icon.sim_disneyplus),
         IconEntry("sim_github", "GitHub", SimpleIcons.Icon.sim_github),
         IconEntry("sim_gitlab", "GitLab", SimpleIcons.Icon.sim_gitlab),
         IconEntry("sim_bitbucket", "Bitbucket", SimpleIcons.Icon.sim_bitbucket),
         IconEntry("sim_stackoverflow", "Stack Overflow", SimpleIcons.Icon.sim_stackoverflow),
-        IconEntry("sim_slack", "Slack", SimpleIcons.Icon.sim_slack),
         IconEntry("sim_zoom", "Zoom", SimpleIcons.Icon.sim_zoom),
         IconEntry("sim_notion", "Notion", SimpleIcons.Icon.sim_notion),
         IconEntry("sim_trello", "Trello", SimpleIcons.Icon.sim_trello),
         IconEntry("sim_dropbox", "Dropbox", SimpleIcons.Icon.sim_dropbox),
         IconEntry("sim_googledrive", "Google Drive", SimpleIcons.Icon.sim_googledrive),
-        IconEntry("sim_onedrive", "OneDrive", SimpleIcons.Icon.sim_onedrive),
         IconEntry("sim_paypal", "PayPal", SimpleIcons.Icon.sim_paypal),
         IconEntry("sim_visa", "Visa", SimpleIcons.Icon.sim_visa),
         IconEntry("sim_mastercard", "Mastercard", SimpleIcons.Icon.sim_mastercard),
-        IconEntry("sim_steam", "Steam", SimpleIcons.Icon.sim_steam),
         IconEntry("sim_epicgames", "Epic Games", SimpleIcons.Icon.sim_epicgames),
         IconEntry("sim_playstation", "PlayStation", SimpleIcons.Icon.sim_playstation),
         IconEntry("sim_xbox", "Xbox", SimpleIcons.Icon.sim_xbox),
         IconEntry("sim_nintendoswitch", "Nintendo Switch", SimpleIcons.Icon.sim_nintendoswitch),
         IconEntry("sim_airbnb", "Airbnb", SimpleIcons.Icon.sim_airbnb),
         IconEntry("sim_uber", "Uber", SimpleIcons.Icon.sim_uber),
-        IconEntry("sim_bookingdotcom", "Booking.com", SimpleIcons.Icon.sim_bookingdotcom),
         IconEntry("sim_ebay", "eBay", SimpleIcons.Icon.sim_ebay),
         IconEntry("sim_shopify", "Shopify", SimpleIcons.Icon.sim_shopify),
         IconEntry("sim_wordpress", "WordPress", SimpleIcons.Icon.sim_wordpress),
-        IconEntry("sim_adobe", "Adobe", SimpleIcons.Icon.sim_adobe),
-        IconEntry("sim_figma", "Figma", SimpleIcons.Icon.sim_figma),
-        IconEntry("sim_canva", "Canva", SimpleIcons.Icon.sim_canva),
         IconEntry("sim_evernote", "Evernote", SimpleIcons.Icon.sim_evernote),
         IconEntry("sim_protonmail", "Proton Mail", SimpleIcons.Icon.sim_protonmail),
-        IconEntry("sim_yahoo", "Yahoo", SimpleIcons.Icon.sim_yahoo),
-        IconEntry("sim_baidu", "百度", SimpleIcons.Icon.sim_baidu),
         IconEntry("sim_tencentqq", "QQ", SimpleIcons.Icon.sim_tencentqq),
         IconEntry("sim_huawei", "华为", SimpleIcons.Icon.sim_huawei),
         IconEntry("sim_xiaomi", "小米", SimpleIcons.Icon.sim_xiaomi),
@@ -90,8 +75,7 @@ object IconCatalog {
         IconEntry("sim_binance", "Binance", SimpleIcons.Icon.sim_binance),
         IconEntry("sim_coinbase", "Coinbase", SimpleIcons.Icon.sim_coinbase),
         IconEntry("sim_americanexpress", "American Express", SimpleIcons.Icon.sim_americanexpress),
-        IconEntry("sim_openai", "OpenAI", SimpleIcons.Icon.sim_openai),
-        IconEntry("sim_anthropic", "Anthropic", SimpleIcons.Icon.sim_anthropic)
+        IconEntry("sim_openai", "OpenAI", SimpleIcons.Icon.sim_openai)
     ).sortedBy { it.label }
 
     private val byKey: Map<String, IconEntry> = all.associateBy { it.key }
