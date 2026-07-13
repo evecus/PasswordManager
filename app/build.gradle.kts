@@ -1,11 +1,10 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
 }
 
 android {
     namespace = "com.mobile.passwordmanager"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.mobile.passwordmanager"
@@ -57,10 +56,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = "17"
-    }
-
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -68,18 +63,14 @@ android {
     }
 }
 
-configurations.all {
-    resolutionStrategy {
-        // com.mikepenz:iconics-core/iconics-views:5.5.0 传递引入了 androidx.core:core(-ktx):1.17.0,
-        // 该版本要求 compileSdk 36 + AGP 8.9.1+,与当前项目的 compileSdk 34 / AGP 8.7.3 不兼容。
-        // 强制锁定为项目自身声明的兼容版本,避免升级 AGP/compileSdk。
-        force("androidx.core:core:1.13.1")
-        force("androidx.core:core-ktx:1.13.1")
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
     }
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.core:core-ktx:1.17.0")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.0")
