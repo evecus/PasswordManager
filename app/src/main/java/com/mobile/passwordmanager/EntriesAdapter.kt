@@ -30,7 +30,7 @@ class EntriesAdapter(
             tvUsername.text = item.username.ifBlank { root.context.getString(R.string.no_username) }
             val iconEntry = IconCatalog.find(item.iconKey)
             if (iconEntry != null) {
-                ivEntryIconBrand.setIcon(IconicsDrawable(root.context, iconEntry.icon))
+                ivEntryIconBrand.icon = IconicsDrawable(root.context, iconEntry.icon)
                 ivEntryIconBrand.visibility = android.view.View.VISIBLE
                 ivEntryIconDefault.visibility = android.view.View.GONE
             } else {

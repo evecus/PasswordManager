@@ -74,7 +74,7 @@ class AddEditActivity : AppCompatActivity() {
     private fun refreshIconPreview() {
         val entry = IconCatalog.find(iconKey)
         if (entry != null) {
-            binding.ivEntryIconBrand.setIcon(IconicsDrawable(this, entry.icon))
+            binding.ivEntryIconBrand.icon = IconicsDrawable(this, entry.icon)
             binding.ivEntryIconBrand.visibility = View.VISIBLE
             binding.ivEntryIconDefault.visibility = View.GONE
         } else {

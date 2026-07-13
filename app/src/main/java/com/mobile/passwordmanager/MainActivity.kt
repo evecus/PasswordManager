@@ -137,7 +137,7 @@ class MainActivity : AppCompatActivity() {
         fun refreshIconPreview() {
             val entry = IconCatalog.find(selectedIconKey)
             if (entry != null) {
-                ivBrand.setIcon(IconicsDrawable(view.context, entry.icon))
+                ivBrand.icon = IconicsDrawable(view.context, entry.icon)
                 ivBrand.visibility = View.VISIBLE
                 ivDefault.visibility = View.GONE
             } else {

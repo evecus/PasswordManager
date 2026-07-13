@@ -94,7 +94,7 @@ class HomeAdapter(
                     tvGroupCount.text = ctx.getString(R.string.group_entry_count, item.count)
                     val iconEntry = IconCatalog.find(item.group.iconKey)
                     if (iconEntry != null) {
-                        ivGroupIconBrand.setIcon(IconicsDrawable(ctx, iconEntry.icon))
+                        ivGroupIconBrand.icon = IconicsDrawable(ctx, iconEntry.icon)
                         ivGroupIconBrand.visibility = android.view.View.VISIBLE
                         ivGroupIconDefault.visibility = android.view.View.GONE
                     } else {
@@ -116,7 +116,7 @@ class HomeAdapter(
                     tvUsername.text = item.entry.username.ifBlank { ctx.getString(R.string.no_username) }
                     val iconEntry = IconCatalog.find(item.entry.iconKey)
                     if (iconEntry != null) {
-                        ivEntryIconBrand.setIcon(IconicsDrawable(ctx, iconEntry.icon))
+                        ivEntryIconBrand.icon = IconicsDrawable(ctx, iconEntry.icon)
                         ivEntryIconBrand.visibility = android.view.View.VISIBLE
                         ivEntryIconDefault.visibility = android.view.View.GONE
                     } else {

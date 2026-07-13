@@ -40,7 +40,7 @@ class IconPickerAdapter(
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val entry = items[position]
-        holder.ivIcon.setIcon(IconicsDrawable(holder.itemView.context, entry.icon))
+        holder.ivIcon.icon = IconicsDrawable(holder.itemView.context, entry.icon)
         holder.tvLabel.text = entry.label
         holder.selectedRing.visibility = if (entry.key == selectedKey) View.VISIBLE else View.GONE
         holder.itemView.setOnClickListener { onSelect(entry) }
